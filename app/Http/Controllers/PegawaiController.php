@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Devisi;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
 
@@ -10,13 +12,14 @@ class PegawaiController extends Controller
     {    
         // $data = Pegawai::with('devisi');
         $pegawai = Pegawai::all();
+        $devisi = Devisi::all();
         // return view('data_pegawai', compact('pegawai'));
         // $pegawai = Pegawai::with('devisis');
         // return view('data_pegawai', compact('pegawais'));
         // $pegawai = Pegawai::with('devisi');
 
         // Mengembalikan view dengan data pegawais
-        return view('pegawai.index', compact('pegawai'));
+        return view('pegawai.index', compact('pegawai', 'devisi'));
     }
 
     public function tambahpegawai(){
